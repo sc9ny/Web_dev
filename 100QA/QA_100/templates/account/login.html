@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form method="post">
+      {%csrf_token%}
+      {% include 'form.html'%}
+      <span>
+        <button type="submit" >Log in</button>
+        Don't have an account? : <a href=" {% url 'signup' %}"> Sign up here</a>
+      </span>
+    </form>
+  </body>
+</html>

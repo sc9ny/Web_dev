@@ -1,0 +1,19 @@
+
+{% for field in form%}
+<p>
+  {{field.widget}}
+  {{field.label_tag}} {{field}}
+</p>
+  {% if form.is_bound %}
+    {% if field.errors %}
+      {% for error in field.errors %}
+        {{error}}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+    {% if field.help_text %}
+      <small class="form-text text-muted">
+      {{ field.help_text }}
+      </small>
+    {% endif %}
+{% endfor %}
