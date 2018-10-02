@@ -11,7 +11,8 @@
       {% include 'form.html'%}
       <span>
         <button type="submit" >Log in</button>
-        Don't have an account? : <a href=" {% url 'signup' %}"> Sign up here</a>
+        Don't have an account? :
+        <a href=" {% url 'account:signup' %}"> Sign up here</a>
       </span>
     </form>
   </body>

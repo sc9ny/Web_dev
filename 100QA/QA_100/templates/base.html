@@ -1,10 +1,20 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>{% block title %}QA100{% endblock %}</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/base.css' %}"> -->
   </head>
   <body>
-    <h1>THIS IS HOME</h1>
+    <div class="top-nav">
+      <ul>
+        <li> <a href="{% url 'home' %}">Home</a> </li>
+        <li> <a href="{% url 'account:login'%}">Login</a> </li>
+        <li> <a href="{% url 'account:logout'%}">Logout</a> </li>
+      </ul>
+      {% block content %}
+      {% endblock %}
+    </div>
   </body>
 </html>
