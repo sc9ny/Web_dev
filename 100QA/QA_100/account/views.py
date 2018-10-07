@@ -13,6 +13,6 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            return HttpResponse("HELLO WORLD!")
+            return render(request, 'QA/home.html')
 
     return render(request, 'account/signup.html', {"form": form})

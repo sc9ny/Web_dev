@@ -1,0 +1,33 @@
+/* From Tablet */
+@media screen and (min-width: 750px) {
+  .first-box {
+    width: 50em;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+    margin-bottom:50px;
+  }
+  .first-box p {
+    display: inline-block;
+
+  }
+
+  .second-box {
+    text-align: center;
+  }
+  span + span {
+    margin: 50px;
+  }
+  .second-box a{
+    
+    border: 1px solid;
+    border-color: black;
+    margin:auto;
+    color:black;
+    background-color:transparent;
+  }
+
+}
+@media screen and (max-length: 650 px){
+
+}
