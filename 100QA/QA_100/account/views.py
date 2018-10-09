@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import login as auth_login
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
-from .forms import SignUpForm
+
+from .forms import SignUpForm, UpdateProfileForm
 # Create your views here.
 
 def signup(request):
@@ -16,3 +19,21 @@ def signup(request):
             return render(request, 'QA/home.html')
 
     return render(request, 'account/signup.html', {"form": form})
+
+@login_required(login_url='/account/login/')
+def save_profile(request, username):
+    form = UpdateProfileForm
+    #could be simply done by user.username, but mehhh
+    current_user = get_object_or_404(User,username=username)
+    if (request.user.id == current_user.id):
+        if request.method == 'POST':
+            form = UpdateProfileForm(request.POST, instance=current_user)
+            if form.is_valid():
+                form.save()
+                #TODO: gotta fix this redirection later.
+                return HttpResponseRedirect(request.path_info)
+
+        return render(request, 'account/profile.html', {"form": form, "user":current_user})
+    #TODO:Maybe if a user try to access someone's profile that has nothing to with that person
+    #more than 3 times,delete that account?
+    return render(request, 'redirection.html', {'message': "Dont even try!"})

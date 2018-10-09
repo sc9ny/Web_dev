@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting..</title>
+  </head>
+  <body>
+    <p>{{message}} </p>
+    <script>
+      function redirect(){
+         window.location.href = "{% url 'home'%}";
+      }
+
+      setTimeout(redirect, 2000); //2000 is equivalent to 2 seconds
+    </script>
+  </body>
+</html>

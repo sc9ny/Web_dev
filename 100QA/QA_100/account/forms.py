@@ -23,4 +23,10 @@ class SignUpForm(UserCreationForm):
 class UpdateProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ()
+        fields = '__all__'
+        exclude = ('user',)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in ['bio','location','birth_date','partner',]:
+            self.fields[field].help_text = None
+            self.fields[field].widget.attrs['placeholder'] = field
