@@ -27,13 +27,14 @@ def save_profile(request, username):
     current_user = get_object_or_404(User,username=username)
     if (request.user.id == current_user.id):
         if request.method == 'POST':
-            form = UpdateProfileForm(request.POST, instance=current_user)
+            form = UpdateProfileForm(request.POST, instance=current_user.profile)
             if form.is_valid():
-                form.save()
+                print (form.changed_data)
+                form.save(update_fields = form.changed_data)
+
                 #TODO: gotta fix this redirection later.
                 return HttpResponseRedirect(request.path_info)
-
-        return render(request, 'account/profile.html', {"form": form, "user":current_user})
+        return render(request, 'account/profile.html', {"form": form})
     #TODO:Maybe if a user try to access someone's profile that has nothing to with that person
     #more than 3 times,delete that account?
     return render(request, 'redirection.html', {'message': "Dont even try!"})
