@@ -30,7 +30,7 @@ def save_profile(request, username):
             form = UpdateProfileForm(request.POST, instance=current_user.profile)
             if form.is_valid():
                 print (form.changed_data)
-                form.save(update_fields = form.changed_data)
+                form.save()
 
                 #TODO: gotta fix this redirection later.
                 return HttpResponseRedirect(request.path_info)
