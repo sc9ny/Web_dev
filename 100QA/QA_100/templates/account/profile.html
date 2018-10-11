@@ -11,7 +11,7 @@
   {% for element in user.profile.Fields%}
     <p> element</p>
   {% endfor %}
-  <form  method="post">
+  <form method="post">
     {% csrf_token%}
     {%include 'form.html'%}
     <input type="submit" value="Submit">

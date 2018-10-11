@@ -29,4 +29,10 @@ class UpdateProfileForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in ['bio','location','birth_date','partner',]:
             self.fields[field].help_text = None
-            self.fields[field].widget.attrs['placeholder'] = field
+            #placeholder for each field to update only changed field. otherwise this has to go through
+            #overriding save method which is tedious since user can't submit an empty/null value
+            if hasattr(kwargs['instance'], field):
+                if getattr(kwargs['instance'], field) == None or getattr(kwargs['instance'], field) =='':
+                    self.fields[field].widget.attrs['placeholder'] = field
+                else:
+                    self.fields[field].widget.attrs['placeholder'] = getattr(kwargs['instance'], field)

@@ -22,14 +22,14 @@ def signup(request):
 
 @login_required(login_url='/account/login/')
 def save_profile(request, username):
-    form = UpdateProfileForm
-    #could be simply done by user.username, but mehhh
     current_user = get_object_or_404(User,username=username)
+    form = UpdateProfileForm(instance = current_user.profile)
+    #could be simply done by user.username, but mehhh
+
     if (request.user.id == current_user.id):
         if request.method == 'POST':
             form = UpdateProfileForm(request.POST, instance=current_user.profile)
             if form.is_valid():
-                print (form.changed_data)
                 form.save()
 
                 #TODO: gotta fix this redirection later.
