@@ -1,70 +1,90 @@
 /* Add a black background color to the top navigation */
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight:400;
-}
-html, body {
-  width: 100%;
-  margin:0;
-  padding:0;
-}
-/* Style the links inside the navigation bar */
-a {
+@media screen and (min-width: 750px) {
+  body, h1,h2,h3,p{
+    font-family: 'Open Sans', sans-serif;
+    font-weight:400;
+  }
+  html, body {
+    width: 100%;
+    margin:0;
+    padding:0;
+  }
+  /* Style the links inside the navigation bar */
+  a {
+      color: #606060;
+      text-align: center;
+      padding: 14px 18px;
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+  }
+  .current-link {
+      color:#baada7;
+  }
+
+  /* Change the color of links on hover */
+  .a:hover {
+    color: #ffa400;
+  }
+  .current {
+    color: #ffa400;
+  }
+  .navbar {
+    background-color: white;
+    box-shadow: 2px 0px 8px 0px rgba(50, 50, 50);
+    width: inherit;
+    height: 2.5em;
+    position: sticky;
+    position: -webkit-sticky;
+    top:0;
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+  }
+  .navbar li {
+    display: inline;
+    margin: 5px;
+    float:right;
     color: #606060;
     text-align: center;
     padding: 14px 18px;
     text-decoration: none;
     font-size: 11px;
     letter-spacing: 2px;
-}
-
-/* Change the color of links on hover */
-a:hover {
-  color: #ffa400;
-}
-
-/* Add a color to the active/current link */
-a.active {
-    color: #ffa400;
-}
-.navbar {
-  background-color: white;
-  box-shadow: 2px 0px 8px 0px rgba(50, 50, 50, 0.04);
-  width: inherit;
-  height: 2em;
-  position: sticky;
-  position: -webkit-sticky;
-  top:0;
-  list-style-type: none;
-  margin: 0;
-  padding:0;
-}
-.navbar li {
-  display: inline;
-  margin: 5px;
-  float:right;
-  color: #606060;
-  text-align: center;
-  padding: 14px 18px;
-  text-decoration: none;
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-.for_padding {
-  padding-left: 20px;
-  padding-right:20px;
-  padding-top:30px;
-  padding-bottom: 30px;
-}
-h1 {
-  letter-spacing: 2px;
-}
-form {
-  background-color: white;
-  transition: all 0.4s ease-in-out;
-}
-form p input {
-  background: transparent;
-  border-color:#808080;
-  border: 1px solid;
+  }
+  .for_padding {
+    padding-left: 20px;
+    padding-right:20px;
+    padding-top:30px;
+    padding-bottom: 30px;
+  }
+  h1 {
+    letter-spacing: 2px;
+  }
+  form {
+    background-color: white;
+    transition: all 0.4s ease-in-out;
+  }
+  form p input {
+    background: transparent;
+    border-color:#808080;
+    border: 1px solid;
+  }
+  ul {
+    list-style-type: none;
+    padding-inline-start:0;
+    letter-spacing: 1px;
+    -webkit-padding-start:0;
+  }
+  .first {
+    float:left !important;
+    height:100% !important;
+    font-size: 25px !important;
+    font-weight: 800;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-left: 50px !important;
+    text-transform: uppercase;
+    background-image: linear-gradient(-100deg, rgba(255, 255, 255, 0), gray 85%, rgba(255, 255, 255, 0));
+  }
 }
