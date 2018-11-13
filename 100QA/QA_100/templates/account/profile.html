@@ -6,6 +6,7 @@
   <li>Bio: {{user.profile.bio}}</li>
   <li>Location: {{ user.profile.location }}</li>
   <li>Birth Date: {{ user.profile.birth_date }}</li>
+  <li>Partner link: {{user.profile.partner}}</li>
 </ul>
 
   {% for element in user.profile.Fields%}
@@ -14,6 +15,13 @@
   <form method="post">
     {% csrf_token%}
     {%include 'form.html'%}
+
+    <h3 style = "color:blue"> You can add your own questions for your partner to answer</h3>
+    {{formset.management_form}}
+    {% for f in formset %}
+    <p>{{f.question}}</p>
+    {% endfor %}
+
     <input type="submit" value="Submit">
   </form>
 {%endblock%}

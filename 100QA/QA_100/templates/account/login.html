@@ -3,11 +3,13 @@
 {% block content %}
 <form method="post">
   {%csrf_token%}
-  {% include 'form.html'%}
-  <span>
+  {{form.as_p}}
+  <p>
     <button type="submit" >Log in</button>
-    Want to know your partner? Start Here :
-    <a href=" {% url 'account:signup' %}"> Sign up here</a>
-  </span>
+    No Account? Start Here :
+    <a style="font-size:13px; padding: 1px 7px 2px; border: 1px solid;"
+       href=" {% url 'account:signup' %}"> Sign up here</a>
+  </p>
+
 </form>
 {% endblock%}
